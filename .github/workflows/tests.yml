@@ -37,3 +37,10 @@ jobs:
 
       - name: Run Test
         run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci
+
+      - name: Arquivar relatório
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: report-tests
+          path: '**/formated-report/'
